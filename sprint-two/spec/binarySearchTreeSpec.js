@@ -37,4 +37,28 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  it('NEW TEST 1: should return the height of a tree using the height method', function () {
+    binarySearchTree.insert(10);
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(4);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(8);
+    binarySearchTree.insert(9);
+    expect(binarySearchTree.getHeight()).to.equal(5);
+  });
+
+  it('NEW TEST 2: should return the height of a tree using the height method regardless of the distribution of branches (one sided)', function () {
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(8);
+    binarySearchTree.insert(9);
+    binarySearchTree.insert(10);
+    binarySearchTree.insert(11);
+    binarySearchTree.insert(12);
+    binarySearchTree.insert(13);
+    expect(binarySearchTree.getHeight()).to.equal(9);
+  });
 });

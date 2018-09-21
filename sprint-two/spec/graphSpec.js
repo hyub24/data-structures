@@ -68,4 +68,15 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('NEW TEST: should create a graph with node values of any type', function() {
+    graph.addNode(1);
+    graph.addNode('hello');
+    graph.addNode(null);
+    graph.addNode(undefined);
+    expect(graph.contains(1)).to.equal(true);
+    expect(graph.contains('hello')).to.equal(true);
+    expect(graph.contains(null)).to.equal(true);
+    expect(graph.contains(undefined)).to.equal(true);
+  });
 });

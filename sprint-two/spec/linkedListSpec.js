@@ -52,4 +52,21 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should assign head to newly created node when addToTail is called on empty list', function () {
+    linkedList.addToTail(5);
+    expect(linkedList.head.value).to.equal(5);
+    expect(linkedList.removeHead()).to.equal(5);
+  });
+
+  it('NEW TEST: should create a list with node values of any type', function() {
+    linkedList.addToTail(1);
+    linkedList.addToTail('hello');
+    linkedList.addToTail(null);
+    linkedList.addToTail(undefined);
+    expect(linkedList.contains(1)).to.equal(true);
+    expect(linkedList.contains('hello')).to.equal(true);
+    expect(linkedList.contains(null)).to.equal(true);
+    expect(linkedList.contains(undefined)).to.equal(true);
+
+  });
 });

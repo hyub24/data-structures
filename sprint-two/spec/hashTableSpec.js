@@ -73,4 +73,12 @@ describe('hashTable', function() {
     hashTable.remove('Mr.');
     expect(hashTable._limit).to.equal(8);
   });
+
+  it('NEW TEST: should create a hash table with values of any type (except undefined or null)', function() {
+    hashTable.insert(1, 'value1');
+    hashTable.insert('hello', 'value2');
+    expect(hashTable.retrieve(1)).to.equal('value1');
+    expect(hashTable.retrieve('hello')).to.equal('value2');
+
+  });
 });

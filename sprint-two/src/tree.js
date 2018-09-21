@@ -30,8 +30,19 @@ treeMethods.contains = function(target) {
       }
     }
     return val;
-  }
+  };
   return searchTarget(this, target);
+};
+
+treeMethods.traverse = function(cb, node) {
+  if (node === undefined) {
+    node = this;
+  }
+  
+  cb(node.value);
+  for (var i = 0; i < node.children.length; i++) {
+    node.traverse(cb, node.children[i]);
+  }
 };
 
 

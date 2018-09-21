@@ -40,5 +40,16 @@ describe('tree', function() {
     expect(tree.contains(7)).to.equal(true);
     expect(tree.contains(8)).to.equal(true);
   });
+  
+  it('NEW TEST: should apply a callback function to every node in this tree', function() {
+    testTree = new Tree(2);
+    testTree.addChild(5);
+    testTree.addChild(6);
+    testTree.addChild(0);
+    var arr = [];
+    var cb = function(val) { arr.push(val); };
+    testTree.traverse(cb);
+    expect(arr).to.eql([2, 5, 6, 0]);
+  });
 
 });
