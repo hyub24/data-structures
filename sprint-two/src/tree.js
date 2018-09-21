@@ -4,7 +4,9 @@ var Tree = function(value) {
 
   // your code here
   newTree.children = [];  // fix me
+
   _.extend(newTree, treeMethods);
+
   return newTree;
 };
 
@@ -15,20 +17,21 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
-  var search = function(node, target) {
-    if(node.value === target) {
+  var searchTarget = function (node, target) {
+    var val = false;
+
+    if (node.value === target) {
       return true;
     }
-    var isFound = false;
-    for(var i = 0; i<node.children.length; i++) {
-      isFound = search(node.children[i], target);
-      if(isFound) {
+    for (var i = 0; i < node.children.length; i++) {
+      val = searchTarget(node.children[i], target);
+      if (val === true) {
         return true;
       }
     }
-    return false;
+    return val;
   }
-  return search(this, target);
+  return searchTarget(this, target);
 };
 
 
