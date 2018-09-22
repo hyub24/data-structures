@@ -83,6 +83,7 @@ binarySearchMethods.depthFirstLog = function(cb, node) {
   this.depthFirstLog(cb, node.right);
 };
 
+
 binarySearchMethods.breadthFirstLog = function(cb, node) {
   if (node === undefined) {
     node = this;
