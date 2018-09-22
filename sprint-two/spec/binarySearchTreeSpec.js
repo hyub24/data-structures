@@ -61,4 +61,5 @@ describe('binarySearchTree', function() {
     binarySearchTree.insert(13);
     expect(binarySearchTree.getHeight()).to.equal(9);
 
-
+  });
+});
