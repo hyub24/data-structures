@@ -51,6 +51,8 @@ binarySearchMethods.insert = function(element, node, depth) {
   // }
 };
 
+
+
 binarySearchMethods.contains = function(target, node) {
   if (node === undefined) {
     node = this;
@@ -67,6 +69,8 @@ binarySearchMethods.contains = function(target, node) {
   }
 };
 
+
+
 binarySearchMethods.depthFirstLog = function(cb, node) {
   if (node === undefined) {
     node = this;
@@ -79,14 +83,25 @@ binarySearchMethods.depthFirstLog = function(cb, node) {
   this.depthFirstLog(cb, node.right);
 };
 
-// binarySearchMethods.breadthFirstLog = function(cb, node) {
-//   if (node === undefined) {
-//     node = this;
-//   } else if (node === null) {
-//     return;
-//   }
-  
-// }
+binarySearchMethods.breadthFirstLog = function(cb, node) {
+  if (node === undefined) {
+    node = this;
+  }
+  var store = new Queue();
+  store.enqueue(this);
+
+  while (store.size() !== 0) {
+    var main = store.dequeue();
+    cb(main.value);
+    if (main.left !== null) {
+      store.enqueue(main.left);
+    }
+    if (main.right !== null) {
+      store.enqueue(main.right);
+    }
+  }
+};
+
 
 binarySearchMethods.inOrderTraversal = function(cb, node) {
   if (node === undefined) {
@@ -99,8 +114,6 @@ binarySearchMethods.inOrderTraversal = function(cb, node) {
   cb(node.value);
   this.inOrderTraversal(cb,node.right);
 }
-
-
 
 binarySearchMethods.rebalance = function() {
   var allNums = [];
@@ -126,8 +139,6 @@ binarySearchMethods.rebalance = function() {
   }
   return output;
 }
-
-
 
 binarySearchMethods.getDepth = function() {
   var height = 0;
@@ -155,6 +166,35 @@ binarySearchMethods.getDepth = function() {
   depthCheck(this, height);
   return [maxheight, minheight];
 };
+
+
+var Queue = function() {
+  this.storage = {};
+  this.length = 0;
+  this.tracker = 0;
+}
+
+Queue.prototype.enqueue = function (value) {
+  this.storage[this.length] = value;
+  this.length++;
+}
+
+Queue.prototype.dequeue = function () {
+  if (this.length - this.tracker === 0) {
+    return;
+  }
+
+  var first = this.storage[this.tracker];
+  delete this.storage[this.tracker];
+  this.tracker++;
+  return first;
+}
+
+Queue.prototype.size = function () {
+  return (this.length - this.tracker);
+}
+
+
 
 /*
  * Complexity: What is the time complexity of the above functions?

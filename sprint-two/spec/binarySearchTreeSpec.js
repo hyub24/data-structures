@@ -62,15 +62,16 @@ describe('binarySearchTree', function() {
     expect(binarySearchTree.getDepth()[0]).to.equal(9);
   });
 
-  // it('NEW TEST 3: should rebalance the entire tree once the max depth is more than twice the minimum depth', function () {
-  //   binarySearchTree.insert(6);
-  //   binarySearchTree.insert(7);
-  //   binarySearchTree.insert(8);
-  //   binarySearchTree.insert(9);
-  //   binarySearchTree.insert(10);
-  //   binarySearchTree.insert(11);
-  //   binarySearchTree.insert(12);
-  //   binarySearchTree.insert(13);
-  //   expect(binarySearchTree.value).to.equal(10);
-  // });
+  it('NEW TEST 3: should execute a callback on every value in a tree using "breadthFirstLog"', function() {
+    var array = [];
+    var func = function(value) { array.push(value); };
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(11);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(4);
+    binarySearchTree.breadthFirstLog(func);
+    expect(array).to.eql([5, 2, 7, 1, 3, 11, 4]);
+  });
 });
