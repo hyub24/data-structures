@@ -74,7 +74,7 @@ HashTable.prototype.increaseSize = function() {
       }
     }
   })
-  if (curSize/this._limit > 0.75) {
+  if (curSize/this._limit >= 0.75) {
     this._limit += this._limit;
   } else {
     return;

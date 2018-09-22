@@ -41,7 +41,7 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
   
-  it('NEW TEST: should apply a callback function to every node in this tree', function() {
+  it('NEW TEST 1: should apply a callback function to every node in this tree', function() {
     testTree = new Tree(2);
     testTree.addChild(5);
     testTree.addChild(6);
@@ -51,5 +51,26 @@ describe('tree', function() {
     testTree.traverse(cb);
     expect(arr).to.eql([2, 5, 6, 0]);
   });
+
+  it('NEW TEST 2: should have parent values for each child', function() {
+    testTree = new Tree(2);
+    testTree.addChild(5);
+    testTree.children[0].addChild(6);
+    expect(testTree.children[0].parent.value).to.equal(2);
+    expect(testTree.children[0].children[0].parent.value).to.equal(5);
+  });
+
+  it('NEW TEST 3: should have a removeFromParent function that disassociates the tree with its parent (in both directions)', function() {
+    expect(tree.removeFromParent).to.be.a('function');
+    testTree = new Tree(2);
+    testTree.addChild(5);
+    testTree.children[0].addChild(6);
+    var childTree = testTree.children[0];
+    childTree.removeFromParent();
+    expect(childTree.parent).to.equal(null);
+    expect(testTree.children[0]).to.equal(undefined);
+    expect(childTree.children[0].value).to.equal(6);
+  });
+
 
 });
