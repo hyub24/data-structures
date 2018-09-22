@@ -61,6 +61,7 @@ binarySearchMethods.depthFirstLog = function(cb, node) {
 binarySearchMethods.getHeight = function() {
   var height = 0;
   var maxheight = 0;
+
   var depthCheck = function(node, height) {
     if (node === null) {
       return;
@@ -71,6 +72,7 @@ binarySearchMethods.getHeight = function() {
     if (height > maxheight) {
       maxheight = height;
     }
+    
     height = 0;
   };
   depthCheck(this, height);
@@ -79,4 +81,8 @@ binarySearchMethods.getHeight = function() {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * binarySearchMethods.insert has a complexity of O(n) - worst case
+ * binarySearchMethods.contains has a complexity of O(n) - worst case
+ * binarySearchMethods.depthFirstLog has a complexity of O(n) - worst case
+ * binarySearchMethods.getheight has a complexity of O(n) - worst case
  */

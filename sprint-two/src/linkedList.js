@@ -53,4 +53,7 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * for list.addToTail the complexity is O(1)
+ * for list.removeHead the complexity is O(1)
+ * for list.contains the complexity is O(n) - worst case
  */

@@ -49,4 +49,7 @@ treeMethods.traverse = function(cb, node) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * for treeMethods.addChild the complexity is O(1)
+ * for treeMethods.contains the complexity is O(n)
+ * for treeMethods.traverse the complexity is O(n)
  */

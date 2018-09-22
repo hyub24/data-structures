@@ -57,15 +57,16 @@ HashTable.prototype.remove = function(k) {
   }
 };
 
-
-
-/*
- * Complexity: What is the time complexity of the above functions?
- */
-
-
 var hashLink = function(key, value) {
   this.key = key;
   this.value = value;
   this.next = null;
 };
+
+
+/*
+ * Complexity: What is the time complexity of the above functions?
+ * for Hashtable.prototype.insert the complexity is O(n) - worst case
+ * for Hashtable.prototype.retrieve the complexity is O(n) - worst case
+ * for Hashtable.prototype.remove the complexity is O(n) - worst case
+ */
